@@ -16,7 +16,6 @@ class Wizard extends Component {
     }
 
     componentDidMount() {}
-
     componentWillUnmount() {}
 
     getStore() {
@@ -30,6 +29,10 @@ class Wizard extends Component {
         }
     }
 
+    ChangeStepCallback(step) {
+        window.sessionStorage.setItem('step', step);
+    }
+
     render() {
         const steps =
         [
@@ -39,22 +42,22 @@ class Wizard extends Component {
         ]
 
         return (
-        <div className='example'>
-            <div className='step-progress'>
-            <StepZilla
-                showSteps={false}
-                steps={steps}
-                preventEnterSubmission={true}
-                nextTextOnFinalActionStep={"Signera"}
-                hocValidationAppliedTo={[3]}
-                startAtStep={0}
-                nextButtonText="Nästa"
-                backButtonText="Gå tillbaka"
-                prevBtnOnLastStep={false}
-                onStepChange={(step) => window.sessionStorage.setItem('step', step)}
-            />
+            <div className='example'>
+                <div className='step-progress'>
+                <StepZilla
+                    showSteps={false}
+                    steps={steps}
+                    preventEnterSubmission={true}
+                    nextTextOnFinalActionStep={"Signera"}
+                    hocValidationAppliedTo={[3]}
+                    startAtStep={0}
+                    nextButtonText="Nästa"
+                    backButtonText="Gå tillbaka"
+                    prevBtnOnLastStep={false}
+                    onStepChange={(step) => this.ChangeStepCallback(step)}
+                />
+                </div>
             </div>
-        </div>
         )
     }
 }
