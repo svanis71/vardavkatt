@@ -25,6 +25,6 @@ class WizardComponent extends Component {
         }
         return this.validated;
     }
- }
+}
 
- export default WizardComponent;
+export default WizardComponent;
