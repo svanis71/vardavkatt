@@ -22,8 +22,15 @@ class Step1 extends Component {
 
     render() {
        return (
-        <WizardComponent fraga="Är katten sjuk?" isValid={this.isValid} onValidAnswer={this.onValidAnswer}>
-            <YesNoAlternatives onValidAnswer={this.onValidAnswer} currentAnswer={this.props.getStore().step1} />            
+        <WizardComponent
+            fraga="Är katten sjuk?"
+            isValid={this.isValid}
+            onValidAnswer={this.onValidAnswer}
+            currentAnswer={this.props.getStore().step1}
+        >
+            <YesNoAlternatives
+                onValidAnswer={this.onValidAnswer}
+                currentAnswer={this.props.getStore().step1} />
         </WizardComponent>
        );
     }

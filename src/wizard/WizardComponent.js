@@ -16,6 +16,9 @@ class WizardComponent extends Component {
     // TODO: props.onValidAnswer: Sätt när inlyssnat giltigt svar
 
     render() {
+        if(this.props.currentAnswer) {
+            Speaker.speak(this.props.currentAnswer);
+        }
         return (
             <div>
                 <h1>{this.props.fraga}</h1>
