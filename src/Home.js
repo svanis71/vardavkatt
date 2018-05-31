@@ -5,6 +5,7 @@ import Speaker from "./Speaker";
 class Home extends Component {
     componentDidMount() {
         sessionStorage.removeItem('form');
+        sessionStorage.removeItem('step');
     }
     render() {
         return (
