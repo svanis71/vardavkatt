@@ -4,13 +4,14 @@ import {
     createHashHistory,
     createMemoryHistory,
 } from "history";
+import Checkbox from './Components/Checkbox';
 
 export default class Settings extends Component {
     state = {};
-    originalSettings = {};
+    defaultSettings = {};
 
     super(props) {
-        this.originalSettings = props.currentSettings;
+        this.defaultSettings = props.defaultSettings;
     }
 
     componentDidMount() {
@@ -20,8 +21,9 @@ export default class Settings extends Component {
         } else {
             this.setState({
                 playSound: true,
+                autoContinue: false,
                 language: "Swedish female",
-                rate: 1.5,
+                rate: 1.0,
                 pitch: 1,
             });
         }
@@ -35,31 +37,27 @@ export default class Settings extends Component {
     };
 
     render() {
-        const buttonStyle = {
-            background: "transparent",
-            border: "solid thin #999",
-            borderRadius: "4px",
-            width: "2em",
-            height: "2em",
-            fontSize: "1.5em",
-        };
         return (
             <form onSubmit={this.onSubmit} className="setting-page">
-                <button style={buttonStyle} type="submit">
-                    <i class="fas fa-angle-left" />
+                <button type="submit" title="Tillbaka till föregående">
+                    <i className="fas fa-angle-left" />
                 </button>
-                <section className="playsound">
-                    <label htmlFor="playsound">Ljud på/av</label>
-                    <input
-                        type="checkbox"
-                        id="playsound"
-                        checked={this.state.playSound}
-                        onChange={e =>
-                            this.setState({ playSound: e.target.checked })
-                        }
-                    />
-                </section>
-                <section className="language">
+                <header>
+                    <h2>Inställningar</h2>
+                </header>
+                <fieldset className="autocontinue">
+                    <legend>Fortsätt automatiskt till nästa steg efter inläsning</legend>
+                    <Checkbox id="autocontinue" name="autocontinue"
+                        caption="På/av"
+                        checked={this.state.autoContinue}
+                        handleClick={chk => this.setState({ autoContinue: chk })} />
+                </fieldset>
+                <fieldset className="playsound">
+                    <legend>Ljud</legend>
+                    <Checkbox id="playsound" name="playsound" caption="På/av" checked={this.state.playSound}
+                        handleClick={chk=>this.setState({playSound: chk})} />
+                </fieldset>
+                <fieldset className="language">
                     <label htmlFor="language">Språk</label>
                     <select
                         name="languageSelect"
@@ -72,7 +70,16 @@ export default class Settings extends Component {
                         <option value="Swedish Female">Svensk kvinnlig</option>
                         <option value="Swedish Male">Svensk manlig</option>
                     </select>
-                </section>
+                </fieldset>
+                <fieldset id="rate-fieldset" className="rate" onChange={(e)=>this.setState({rate: Number(e.target.value)})}>
+                    <legend>Uppläsningshastighet</legend>
+                    <input type="radio" name="rate" id="rate-slow" value="0.5" checked={this.state.rate===0.5} />
+                    <label htmlFor="rate-slow">Långsam</label>
+                    <input type="radio" name="rate" id="rate-medium" value="1.0" checked={this.state.rate===1.0}/>
+                    <label htmlFor="rate-medium">Medium</label>
+                    <input type="radio" name="rate" id="rate-fast" value="1.6" checked={this.state.rate===1.6}/>
+                    <label htmlFor="rate-fast">Snabb</label>
+                </fieldset>
             </form>
         );
     }

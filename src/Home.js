@@ -12,7 +12,7 @@ class Home extends Component {
             <div className="menu">
                 <Link to="/wizard" className="menu-item">
                     <span className="menu-icon">
-                        <i class="fab fa-wpforms" />
+                        <i className="fab fa-wpforms" />
                     </span>
                     <span className="menuText">Gå till formular</span>
                 </Link>
