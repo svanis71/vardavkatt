@@ -1,7 +1,6 @@
-import React from "react";
-import WizardComponent from './WizardComponent';
+import React, { Component } from "react";
 
-class Step3 extends WizardComponent {
+class Step3 extends Component {
     constructor(props) {
         super(props);
         this.validated = true;
