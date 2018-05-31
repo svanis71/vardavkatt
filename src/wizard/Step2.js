@@ -11,7 +11,8 @@ class Step2 extends WizardComponent {
             givenValue: ""
         };
 
-        Listener.test();
+        this.listener = new Listener();
+        this.listener.test();
     }
 
     handleChange = (event) => {
