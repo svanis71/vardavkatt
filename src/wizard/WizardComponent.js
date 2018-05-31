@@ -9,6 +9,9 @@ class WizardComponent extends Component {
 
     isValidated() {
         console.log('kontrollera validering');
+        if (!this.validated) {
+            console.log('säg att formuläret inte är ifyllt');
+        }
         return this.validated;
     }
  }

@@ -8,8 +8,8 @@ class Step1 extends WizardComponent {
     }
 
     handleClick() {
-        console.log('handleClick');
-        this.validated = !this.validated;
+        this.validated = !this.validated; // För test
+        console.log('handleClick, validering: ' + this.validated);
     }
 
     render() {
