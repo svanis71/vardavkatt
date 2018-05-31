@@ -7,6 +7,7 @@ import StepZilla from 'react-stepzilla';
 class Wizard extends Component {
     constructor(props) {
         super(props);
+        console.log(props);
         this.state = {};
         this.sampleStore = {
         email: '',
