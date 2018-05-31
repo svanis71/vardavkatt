@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import Speaker from "./Speaker";
 
 class Home extends Component {
+    componentDidMount() {
+        sessionStorage.removeItem('form');
+    }
     render() {
         return (
             <div className="menu">

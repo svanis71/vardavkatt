@@ -8,22 +8,29 @@ class Step1 extends Component {
     }
 
     isValidated() {
-        return this.props.getStore().step1 !== null;
-        // TODO: Speaker här om att det är obligatoriskt        
+        return this.props.getStore()[this.props.stepName] !== null;
+        // TODO: Speaker här om att det är obligatoriskt
     }
 
     isValid(val) {
-        return !!val && ['yes', 'no'].indexOf(val.toLowerCase()) > -1;
+        return !!val && ['ja', 'nej'].indexOf(val.toLowerCase()) > -1;
     }
 
     onValidAnswer = (answer) => {
-        this.props.updateStore({step1: answer});
+        this.props.updateStore({[this.props.stepName]: answer});
     }
 
     render() {
        return (
-        <WizardComponent fraga="Är katten sjuk?" isValid={this.isValid} onValidAnswer={this.onValidAnswer}>
-            <YesNoAlternatives onValidAnswer={this.onValidAnswer} currentAnswer={this.props.getStore().step1} />            
+        <WizardComponent
+            fraga={this.props.fraga}
+            isValid={this.isValid}
+            onValidAnswer={this.onValidAnswer}
+            currentAnswer={this.props.getStore()[this.props.stepName]}
+        >
+            <YesNoAlternatives
+                onValidAnswer={this.onValidAnswer}
+                currentAnswer={this.props.getStore()[this.props.stepName]} />
         </WizardComponent>
        );
     }
