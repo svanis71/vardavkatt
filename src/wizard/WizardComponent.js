@@ -9,15 +9,26 @@ class WizardComponent extends Component {
     };
 
     componentDidMount() {
-        Speaker.speak(this.props.fraga, () => this.fragaKlar());
+        Speaker.speak(this.props.fraga, () => this.rostKlar());
     }
 
-    fragaKlar() {
+    rostKlar() {
         console.log('fråga klar');
-        this.listener.startRecognition().then(result => {
-            console.log(result);
-            this.props.isValid(result) && this.props.onValidAnswer(result);
-        });
+        this.listener.startRecognition().then(result => this.hanteraSvar(result));
+    }
+
+    hanteraSvar(result) {
+        console.log(result);
+        // this.listener.stopRecognition();
+        let valid = this.props.isValid(result);
+        valid && this.props.onValidAnswer(result);
+
+        if (valid) {
+            Speaker.speak("Du svarade " + result + " säg fortsätt eller ange ett nytt svar.");
+        }
+        else {
+            Speaker.speak("Jag förstod inte. Försök igen", () => this.rostKlar());
+        }
     }
 
     // TODO: props.isValid är en metod som returnerar bool om det inlyssnade värdet är ok

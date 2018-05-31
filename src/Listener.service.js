@@ -39,8 +39,10 @@ class Listener {
                 let last = event.results.length - 1;
                 console.log("Hört svar: " + event.results[last][0].transcript);
                 console.log("Confidence: " + event.results[0][0].confidence);
-                resolve(event.results[last][0].transcript);
+                const result = event.results[last][0].transcript;
+                resolve(result);
             };
+
             this.recognition.onspeechend = () => {
                 this.recognition.stop();
             };
@@ -49,8 +51,7 @@ class Listener {
 
         return promise;
     }
-
-
+    
 }
 
 export default Listener;
