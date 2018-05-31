@@ -1,17 +1,20 @@
 import React, { Component } from "react";
 import Speaker from '../Speaker';
+import Listener from '../Listener.service';
 
 class WizardComponent extends Component {
     constructor(props) {
         super(props);
+        this.listener = new Listener();
     };
 
     componentDidMount() {
-        Speaker.speak(this.props.fraga, this.fragaKlar);
+        Speaker.speak(this.props.fraga, () => this.fragaKlar());
     }
 
     fragaKlar() {
         console.log('fråga klar');
+        this.listener.startRecognition();
     }
 
     // TODO: props.isValid är en metod som returnerar bool om det inlyssnade värdet är ok

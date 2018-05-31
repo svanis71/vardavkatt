@@ -23,13 +23,21 @@ class Listener {
 
     }
 
-
-
     test() {
         console.log(this.grammar);
         console.log(this.speechRecognition);
         console.log(this.speechGrammarList);
         console.log(this.speechRecognitionEvent);
+    }
+
+    startRecognition() {
+        this.recognition.start();
+
+        this.recognition.onresult = (event) => {
+            let last = event.results.length - 1;
+            console.log("Hört svar: " + event.results[last][0].transcript);
+            console.log("Confidence: " + event.results[0][0].confidence);
+        };
     }
 }
 
