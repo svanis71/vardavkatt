@@ -1,4 +1,5 @@
 import { Component } from "react";
+import Speaker from '../Speaker';
 
 class WizardComponent extends Component {
     constructor(props) {
@@ -10,7 +11,7 @@ class WizardComponent extends Component {
     isValidated() {
         console.log('kontrollera validering');
         if (!this.validated) {
-            console.log('säg att formuläret inte är ifyllt');
+            Speaker.speak('Du måste göra ett val innan du kan gå vidare');
         }
         return this.validated;
     }

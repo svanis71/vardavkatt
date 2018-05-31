@@ -6,6 +6,9 @@ import Home from "./Home";
 import Wizard from './wizard/Wizard';
 
 class App extends Component {
+    componentWillMount() {
+        console.log('willMOunt');
+    }
     render() {
         return (
             <div className="App">
