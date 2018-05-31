@@ -14,7 +14,10 @@ class WizardComponent extends Component {
 
     fragaKlar() {
         console.log('fråga klar');
-        this.listener.startRecognition();
+        this.listener.startRecognition().then(result => {
+            console.log(result);
+            this.props.isValid(result) && this.props.onValidAnswer(result);
+        });
     }
 
     // TODO: props.isValid är en metod som returnerar bool om det inlyssnade värdet är ok

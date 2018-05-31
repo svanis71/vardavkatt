@@ -16,6 +16,7 @@ class Listener {
         this.speechRecognitionList = new this.speechGrammarList();
         this.speechRecognitionList.addFromString(this.grammar, 1);
 
+        this.recognition.grammars = this.speechRecognitionList;
         this.recognition.continuous = false;
         this.recognition.lang = 'sv-SE';
         this.recognition.interimResults = false;
@@ -31,14 +32,25 @@ class Listener {
     }
 
     startRecognition() {
-        this.recognition.start();
+        const promise = new Promise((resolve, reject) => {
+            this.recognition.start();
 
-        this.recognition.onresult = (event) => {
-            let last = event.results.length - 1;
-            console.log("Hört svar: " + event.results[last][0].transcript);
-            console.log("Confidence: " + event.results[0][0].confidence);
-        };
+            this.recognition.onresult = event => {
+                let last = event.results.length - 1;
+                console.log("Hört svar: " + event.results[last][0].transcript);
+                console.log("Confidence: " + event.results[0][0].confidence);
+                resolve(event.results[last][0].transcript);
+            };
+            this.recognition.onspeechend = () => {
+                this.recognition.stop();
+            };
+
+        });
+
+        return promise;
     }
+
+
 }
 
 export default Listener;
