@@ -18,6 +18,11 @@ class WizardComponent extends Component {
         Speaker.cancel();
     }
 
+    setValid() {
+        this.validated = true
+        Speaker.cancel();
+    }
+
     isValidated() {
         console.log('kontrollera validering');
         if (!this.validated) {
