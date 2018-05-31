@@ -12,4 +12,4 @@ class Speaker {
     }
 } 
 
- export default Speaker;
+export default Speaker;

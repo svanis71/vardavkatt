@@ -1,6 +1,7 @@
 import React from "react";
 import YesNoAlternatives from "./YesNoAlternatives";
 import WizardComponent from './WizardComponent';
+import Listener from '../Listener.service';
 
 class Step2 extends WizardComponent {
     constructor(props) {
@@ -9,6 +10,8 @@ class Step2 extends WizardComponent {
         this.state = {
             givenValue: ""
         };
+
+        Listener.test();
     }
 
     handleChange = (event) => {
