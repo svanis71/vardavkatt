@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import Header from './Header';
-import logo from "./img/cat.svg";
+import Header from './page/Header';
+import Footer from './page/Footer';
+
 import "./App.css";
 
 class App extends Component {
@@ -9,7 +10,7 @@ class App extends Component {
             <div className="App">
                 <Header />
                 <article />
-                <footer />
+                <Footer />
             </div>
         );
     }
