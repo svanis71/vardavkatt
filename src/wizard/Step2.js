@@ -1,9 +1,13 @@
 import React, { Component } from "react";
+import YesNoAlternatives from "./YesNoAlternatives";
 
 class Step2 extends Component {
     render() {
        return (
-        <div>Step 2</div>
+           <div>
+               <div>Step 2</div>
+               <YesNoAlternatives />
+           </div>
        );
     }
  }
