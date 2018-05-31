@@ -9,26 +9,23 @@ class Wizard extends Component {
     constructor(props) {
         super(props);
         console.log(props);
-        this.state = {};
-        this.sampleStore = {
-        email: '',
-        gender: '',
-        savedToCloud: false
+        this.state = {
+            step1: null,
+            step2: null,
+            step3: null
         };
+       
     }
 
     componentDidMount() {}
     componentWillUnmount() {}
 
     getStore() {
-        return this.sampleStore;
+        return this.state;
     }
 
-    updateStore(update) {
-        this.sampleStore = {
-        ...this.sampleStore,
-        ...update,
-        }
+    updateStore(updateObj) {
+        this.setState(updateObj);
     }
 
     ChangeStepCallback(step) {

@@ -1,31 +1,19 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 
 class YesNoAlternatives extends Component {
     constructor(props) {
         super(props);
     }
 
-    onSelectionMade = (selection, event) => {
-        event.target.data = selection;
-    };
-
     render() {
        return (
            <div>
-               <button onClick={(event) => this.onSelectionMade("no", event)}>No</button>
-               <button onClick={(event) => this.onSelectionMade("yes", event)}>Yes</button>
+               <button onClick={() => this.props.onValidAnswer("no")}>No</button>
+               <button onClick={() => this.props.onValidAnswer("yes")}>Yes</button>
+               <p>Aktuellt val: {this.props.currentAnswer}</p>
            </div>
        );
     }
 }
-
-YesNoAlternatives.defaultProps = {
-    givenValue: "none"
-};
-
-YesNoAlternatives.propTypes = {
-    givenValue: PropTypes.string
-};
 
 export default YesNoAlternatives;

@@ -1,27 +1,30 @@
-import React from "react";
+import React, { Component } from "react";
 import WizardComponent from './WizardComponent';
-import Speaker from '../Speaker';
+import YesNoAlternatives from "./YesNoAlternatives";
 
-class Step1 extends WizardComponent {
+class Step1 extends Component {
     constructor(props) {
         super(props);
-        this.handleClick = this.handleClick.bind(this);
-        this.fraga = 'Vad heter katten?';
     }
 
-    handleClick() {
-        this.validated = !this.validated; // För test
-        console.log('handleClick, validering: ' + this.validated);
+    isValidated() {
+        return this.props.getStore().step1 !== null;
+        // TODO: Speaker här om att det är obligatoriskt        
+    }
+
+    isValid(val) {
+        return !!val && ['yes', 'no'].indexOf(val.toLowerCase()) > -1;
+    }
+
+    onValidAnswer = (answer) => {
+        this.props.updateStore({step1: answer});
     }
 
     render() {
        return (
-        <div>
-            <h1>Fråga 1</h1>
-            <p>{this.fraga}</p>
-            <button onClick={this.handleClick}>Ja</button>
-            <button onClick={this.handleClick}>Nej</button>
-        </div>
+        <WizardComponent fraga="Är katten sjuk?" isValid={this.isValid} onValidAnswer={this.onValidAnswer}>
+            <YesNoAlternatives onValidAnswer={this.onValidAnswer} currentAnswer={this.props.getStore().step1} />            
+        </WizardComponent>
        );
     }
  }

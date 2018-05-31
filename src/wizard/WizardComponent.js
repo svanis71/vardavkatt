@@ -1,30 +1,24 @@
-import { Component } from "react";
+import React, { Component } from "react";
 import Speaker from '../Speaker';
 
 class WizardComponent extends Component {
     constructor(props) {
-        super(props);
-        console.log(props);
-        this.isValidated = this.isValidated.bind(this);
-        this.fraga = '';
-        this.validated = false;
+        super(props);        
     };
 
-    componentDidMount() {
-        Speaker.speak(this.fraga);
-    }
+    // TODO: props.isValid är en metod som returnerar bool om det inlyssnade värdet är ok
+    // Använd isMounted et al
 
-    componentWillUnmount() {
-        Speaker.cancel();
-    }
+    // TODO: props.onValidAnswer: Sätt när inlyssnat giltigt svar
 
-    isValidated() {
-        console.log('kontrollera validering');
-        if (!this.validated) {
-            Speaker.speak('Du måste göra ett val innan du kan gå vidare');
-        }
-        return this.validated;
+    render() {
+        return (
+            <div>
+                <h1>{this.props.fraga}</h1>
+                {this.props.children}
+            </div>
+        );
     }
- }
+}
 
- export default WizardComponent;
+export default WizardComponent;
