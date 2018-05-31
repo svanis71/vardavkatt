@@ -50,6 +50,7 @@ class Wizard extends Component {
                 startAtStep={0}
                 nextButtonText="Nästa"
                 backButtonText="Gå tillbaka"
+                prevBtnOnLastStep={false}
                 onStepChange={(step) => window.sessionStorage.setItem('step', step)}
             />
             </div>
