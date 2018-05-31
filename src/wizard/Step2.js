@@ -13,7 +13,7 @@ class Step2 extends Component {
     }
 
     isValid(val) {
-        return !!val && ['yes', 'no'].indexOf(val.toLowerCase()) > -1;
+        return !!val && ['ja', 'nej'].indexOf(val.toLowerCase()) > -1;
     }
 
     onValidAnswer = (answer) => {
@@ -26,6 +26,7 @@ class Step2 extends Component {
             fraga={this.props.fraga}
             isValid={this.isValid}
             onValidAnswer={this.onValidAnswer}
+            onNext={() => this.props.jumpToStep(2)}
             currentAnswer={this.props.getStore()[this.props.stepName]}
         >
             <YesNoAlternatives

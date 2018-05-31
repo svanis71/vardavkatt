@@ -26,6 +26,7 @@ class Step1 extends Component {
             fraga={this.props.fraga}
             isValid={this.isValid}
             onValidAnswer={this.onValidAnswer}
+            onNext={() => this.props.jumpToStep(1)}
             currentAnswer={this.props.getStore()[this.props.stepName]}
         >
             <YesNoAlternatives
