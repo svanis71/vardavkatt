@@ -20,8 +20,8 @@ export default class Settings extends Component {
         } else {
             this.setState({
                 playSound: true,
-                language: "Swedish female",
-                rate: 1.5,
+                language: "Swedish Female",
+                rate: 1,
                 pitch: 1,
                 autoNext: false
             });
