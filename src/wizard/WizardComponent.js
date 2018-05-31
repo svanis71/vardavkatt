@@ -18,6 +18,12 @@ class WizardComponent extends Component {
         Speaker.cancel();
     }
 
+    setValid(val) {
+        this.validated = true
+        Speaker.cancel();
+        Speaker.speak('Du valde värde: ' + val);
+    }
+
     isValidated() {
         console.log('kontrollera validering');
         if (!this.validated) {
@@ -25,6 +31,6 @@ class WizardComponent extends Component {
         }
         return this.validated;
     }
- }
+}
 
- export default WizardComponent;
+export default WizardComponent;

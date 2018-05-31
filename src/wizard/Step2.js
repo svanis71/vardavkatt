@@ -17,7 +17,7 @@ class Step2 extends WizardComponent {
 
     handleChange = (event) => {
         console.log(event.target.data);
-        this.validated = true;
+        this.setValid();
         this.setState({
             givenValue: event.target.data
         });
