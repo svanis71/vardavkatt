@@ -3,11 +3,15 @@ import Speaker from '../Speaker';
 
 class WizardComponent extends Component {
     constructor(props) {
-        super(props);        
+        super(props);
     };
 
     componentDidMount() {
-        Speaker.speak(this.props.fraga);
+        Speaker.speak(this.props.fraga, this.fragaKlar);
+    }
+
+    fragaKlar() {
+        console.log('fråga klar');
     }
 
     // TODO: props.isValid är en metod som returnerar bool om det inlyssnade värdet är ok

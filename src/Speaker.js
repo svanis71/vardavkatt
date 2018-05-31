@@ -2,12 +2,15 @@ class Speaker {
     static defaultVoice = 'Swedish Female';
     static enabled = true;
     
-    static speak(text) {
+    static speak(text, endCallback) {
         if (this.enabled) {
-            window.responsiveVoice.speak(text, this.defaultVoice);
+            window.responsiveVoice.speak(text, this.defaultVoice, {onend: endCallback});
         }
         else {
             console.log(text);
+            if(endCallback) {
+                endCallback();
+            }
         }
     }
 
