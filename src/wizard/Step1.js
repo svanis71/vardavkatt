@@ -1,6 +1,5 @@
 import React from "react";
 import WizardComponent from './WizardComponent';
-import Speaker from '../Speaker';
 
 class Step1 extends WizardComponent {
     constructor(props) {
