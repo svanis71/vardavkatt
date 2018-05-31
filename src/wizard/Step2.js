@@ -1,36 +1,37 @@
 import React, { Component } from "react";
-import YesNoAlternatives from "./YesNoAlternatives";
 import WizardComponent from './WizardComponent';
-import Listener from '../Listener.service';
+import YesNoAlternatives from "./YesNoAlternatives";
 
 class Step2 extends Component {
     constructor(props) {
         super(props);
-        this.validated = false;
-        this.state = {
-            givenValue: ""
-        };
-
-        this.listener = new Listener();
-        this.listener.test();
     }
 
-    handleChange = (event) => {
-        console.log(event.target.data);
-        this.setValid();
-        this.setState({
-            givenValue: event.target.data
-        });
-    };
+    isValidated() {
+        return this.props.getStore()[this.props.stepName] !== null;
+        // TODO: Speaker här om att det är obligatoriskt
+    }
 
+    isValid(val) {
+        return !!val && ['yes', 'no'].indexOf(val.toLowerCase()) > -1;
+    }
+
+    onValidAnswer = (answer) => {
+        this.props.updateStore({[this.props.stepName]: answer});
+    }
 
     render() {
        return (
-           <div onClick={this.handleChange}>
-               <div>Step 2</div>
-               <YesNoAlternatives />
-               <div>{this.state.givenValue}</div>
-           </div>
+        <WizardComponent
+            fraga="Är katten frisk?"
+            isValid={this.isValid}
+            onValidAnswer={this.onValidAnswer}
+            currentAnswer={this.props.getStore()[this.props.stepName]}
+        >
+            <YesNoAlternatives
+                onValidAnswer={this.onValidAnswer}
+                currentAnswer={this.props.getStore()[this.props.stepName]} />
+        </WizardComponent>
        );
     }
  }

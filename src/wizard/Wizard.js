@@ -30,7 +30,7 @@ class Wizard extends Component {
 
     updateStore(updateObj) {
         this.setState(updateObj);
-        sessionStorage.setItem('form', JSON.stringify(updateObj));
+        sessionStorage.setItem('form', JSON.stringify(this.state));
     }
 
     ChangeStepCallback(step) {
@@ -40,10 +40,10 @@ class Wizard extends Component {
     render() {
         const steps =
         [
-            {name: 'Step1', component: <Step1 getStore={() => (this.getStore())} updateStore={(u) => {this.updateStore(u)}} />},
-            {name: 'Step2', component: <Step2 getStore={() => (this.getStore())} updateStore={(u) => {this.updateStore(u)}} />},
-            {name: 'Step3', component: <Step3 getStore={() => (this.getStore())} updateStore={(u) => {this.updateStore(u)}} />},
-            {name: 'Kvittens', component: <Kvittens getStore={() => (this.getStore())} updateStore={(u) => {this.updateStore(u)}} />}
+            {name: 'Step1', component: <Step1 stepName='step1' getStore={() => (this.getStore())} updateStore={(u) => {this.updateStore(u)}} />},
+            {name: 'Step2', component: <Step2 stepName='step2' getStore={() => (this.getStore())} updateStore={(u) => {this.updateStore(u)}} />},
+            {name: 'Step3', component: <Step3 stepName='step3' getStore={() => (this.getStore())} updateStore={(u) => {this.updateStore(u)}} />},
+            {name: 'Kvittens', component: <Kvittens stepName='kvittens' getStore={() => (this.getStore())} updateStore={(u) => {this.updateStore(u)}} />}
         ]
 
         return (
