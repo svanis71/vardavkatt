@@ -11,7 +11,7 @@ export default class App extends Component {
     defaultSettings = {
         playSound: true,
         autoContinue: false,
-        language: "Swedish female",
+        language: "Swedish Female",
         rate: 1.0,
         pitch: 1,
     }

@@ -1,9 +1,5 @@
 import React, { Component } from "react";
-import {
-    createBrowserHistory,
-    createHashHistory,
-    createMemoryHistory,
-} from "history";
+import { createBrowserHistory } from "history";
 import Checkbox from './Components/Checkbox';
 
 export default class Settings extends Component {
@@ -55,7 +51,7 @@ export default class Settings extends Component {
                 <fieldset className="playsound">
                     <legend>Ljud</legend>
                     <Checkbox id="playsound" name="playsound" caption="På/av" checked={this.state.playSound}
-                        handleClick={chk=>this.setState({playSound: chk})} />
+                        handleClick={chk => this.setState({ playSound: chk })} />
                 </fieldset>
                 <fieldset className="language">
                     <label htmlFor="language">Språk</label>
@@ -71,13 +67,13 @@ export default class Settings extends Component {
                         <option value="Swedish Male">Svensk manlig</option>
                     </select>
                 </fieldset>
-                <fieldset id="rate-fieldset" className="rate" onChange={(e)=>this.setState({rate: Number(e.target.value)})}>
+                <fieldset id="rate-fieldset" className="rate" onChange={(e) => this.setState({ rate: Number(e.target.value) })}>
                     <legend>Uppläsningshastighet</legend>
-                    <input type="radio" name="rate" id="rate-slow" value="0.5" checked={this.state.rate===0.5} />
+                    <input type="radio" name="rate" id="rate-slow" value="0.5" checked={this.state.rate === 0.5} />
                     <label htmlFor="rate-slow">Långsam</label>
-                    <input type="radio" name="rate" id="rate-medium" value="1.0" checked={this.state.rate===1.0}/>
+                    <input type="radio" name="rate" id="rate-medium" value="1.0" checked={this.state.rate === 1.0} />
                     <label htmlFor="rate-medium">Medium</label>
-                    <input type="radio" name="rate" id="rate-fast" value="1.6" checked={this.state.rate===1.6}/>
+                    <input type="radio" name="rate" id="rate-fast" value="1.6" checked={this.state.rate === 1.6} />
                     <label htmlFor="rate-fast">Snabb</label>
                 </fieldset>
             </form>

@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 import logo from "../img/cat.svg";
-import {
-    createBrowserHistory,
-    createHashHistory,
-    createMemoryHistory,
-} from "history";
+import { createBrowserHistory } from "history";
 
 class Header extends Component {
     onLinkClick = e => {

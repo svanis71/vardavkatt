@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import WizardComponent from './WizardComponent';
+// import WizardComponent from './WizardComponent';
 
 class Kvittens extends Component {
     constructor(props) {
