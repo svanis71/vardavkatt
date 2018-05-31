@@ -1,16 +1,16 @@
 import React from "react";
 import WizardComponent from './WizardComponent';
 
-class Step3 extends WizardComponent {
+class Kvittens extends WizardComponent {
     constructor(props) {
         super(props);
         this.validated = true;
     }
     render() {
        return (
-        <div>Step 3</div>
+        <div>Kvittens!</div>
        );
     }
  }
 
- export default Step3;
+ export default Kvittens;

@@ -5,6 +5,7 @@ import WizardComponent from './WizardComponent';
 class Step2 extends WizardComponent {
     constructor(props) {
         super(props);
+        this.validated = false;
         this.state = {
             givenValue: ""
         };
@@ -12,11 +13,12 @@ class Step2 extends WizardComponent {
 
     handleChange = (event) => {
         console.log(event.target.data);
-
+        this.validated = true;
         this.setState({
             givenValue: event.target.data
         });
     };
+
 
     render() {
        return (

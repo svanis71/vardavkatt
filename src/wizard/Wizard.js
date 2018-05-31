@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Step1 from './Step1'
 import Step2 from './Step2'
 import Step3 from './Step3'
+import Kvittens from './Kvittens'
 import StepZilla from 'react-stepzilla';
 
 class Wizard extends Component {
@@ -39,7 +40,8 @@ class Wizard extends Component {
         [
             {name: 'Step1', component: <Step1 getStore={() => (this.getStore())} updateStore={(u) => {this.updateStore(u)}} />},
             {name: 'Step2', component: <Step2 getStore={() => (this.getStore())} updateStore={(u) => {this.updateStore(u)}} />},
-            {name: 'Step3', component: <Step3 getStore={() => (this.getStore())} updateStore={(u) => {this.updateStore(u)}} />}
+            {name: 'Step3', component: <Step3 getStore={() => (this.getStore())} updateStore={(u) => {this.updateStore(u)}} />},
+            {name: 'Kvittens', component: <Kvittens getStore={() => (this.getStore())} updateStore={(u) => {this.updateStore(u)}} />}
         ]
 
         return (
