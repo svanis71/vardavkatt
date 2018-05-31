@@ -2,24 +2,38 @@
     text-align: center;
 
     .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-        height: 80px;
+        height: 30px;
+        float: left;
+        display: inline;
     }
 
     .App-header {
-        background-color: #222;
-        height: 150px;
+        text-align: left;
+        background-color: white;
+        height: 20px;
         padding: 20px;
         color: white;
+        border-bottom: 1px solid #ccc;
+
+        .menu-icon {
+            float: right;
+            font-size: 24px;
+        }
+
+        h1 {
+            float: left;
+            margin: 4px;
+            display: inline;
+        }
     }
 
     .App-header a {
-        color: white;
+        color: #3b9e8e;
         text-decoration: none;
     }
 
     .App-title {
-        font-size: 1.5em;
+        font-size: 1em;
     }
 
     .App-intro {
