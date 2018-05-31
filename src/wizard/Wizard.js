@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Step1 from './Step1'
 import Step2 from './Step2'
-import Step3 from './Step3'
+import Signera from './Signera'
 import Kvittens from './Kvittens'
 import StepZilla from 'react-stepzilla';
 
@@ -14,6 +14,11 @@ class Wizard extends Component {
             step2: null,
             step3: null
         };
+        
+        this.fragor = {
+            step1: 'Är katten sjuk?',
+            step2: 'Är katten frisk?',
+        }
 
         if (sessionStorage.getItem('form')) {
             this.state = JSON.parse(sessionStorage.getItem('form'));
@@ -40,9 +45,9 @@ class Wizard extends Component {
     render() {
         const steps =
         [
-            {name: 'Step1', component: <Step1 stepName='step1' getStore={() => (this.getStore())} updateStore={(u) => {this.updateStore(u)}} />},
-            {name: 'Step2', component: <Step2 stepName='step2' getStore={() => (this.getStore())} updateStore={(u) => {this.updateStore(u)}} />},
-            {name: 'Step3', component: <Step3 stepName='step3' getStore={() => (this.getStore())} updateStore={(u) => {this.updateStore(u)}} />},
+            {name: 'Step1', component: <Step1 stepName='step1' fraga={this.fragor.step1} getStore={() => (this.getStore())} updateStore={(u) => {this.updateStore(u)}} />},
+            {name: 'Step2', component: <Step2 stepName='step2' fraga={this.fragor.step2} getStore={() => (this.getStore())} updateStore={(u) => {this.updateStore(u)}} />},
+            {name: 'Signera', component: <Signera fragor={this.fragor} stepName='signera' getStore={() => (this.getStore())} updateStore={(u) => {this.updateStore(u)}} />},
             {name: 'Kvittens', component: <Kvittens stepName='kvittens' getStore={() => (this.getStore())} updateStore={(u) => {this.updateStore(u)}} />}
         ]
 

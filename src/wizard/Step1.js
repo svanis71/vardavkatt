@@ -23,7 +23,7 @@ class Step1 extends Component {
     render() {
        return (
         <WizardComponent
-            fraga="Är katten sjuk?"
+            fraga={this.props.fraga}
             isValid={this.isValid}
             onValidAnswer={this.onValidAnswer}
             currentAnswer={this.props.getStore()[this.props.stepName]}
