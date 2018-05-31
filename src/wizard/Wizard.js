@@ -14,6 +14,10 @@ class Wizard extends Component {
             step2: null,
             step3: null
         };
+
+        if (sessionStorage.getItem('form')) {
+            this.state = JSON.parse(sessionStorage.getItem('form'));
+        }
        
     }
 
@@ -26,6 +30,7 @@ class Wizard extends Component {
 
     updateStore(updateObj) {
         this.setState(updateObj);
+        sessionStorage.setItem('form', JSON.stringify(updateObj));
     }
 
     ChangeStepCallback(step) {
@@ -50,7 +55,7 @@ class Wizard extends Component {
                     preventEnterSubmission={true}
                     nextTextOnFinalActionStep={"Signera"}
                     hocValidationAppliedTo={[3]}
-                    startAtStep={0}
+                    startAtStep={window.sessionStorage.getItem('step') ? parseFloat(window.sessionStorage.getItem('step')) : 0}
                     nextButtonText="Nästa"
                     backButtonText="Gå tillbaka"
                     prevBtnOnLastStep={false}
