@@ -42,11 +42,14 @@ class Wizard extends Component {
         <div className='example'>
             <div className='step-progress'>
             <StepZilla
+                showSteps={false}
                 steps={steps}
                 preventEnterSubmission={true}
                 nextTextOnFinalActionStep={"Signera"}
                 hocValidationAppliedTo={[3]}
                 startAtStep={0}
+                nextButtonText="Nästa"
+                backButtonText="Gå tillbaka"
                 onStepChange={(step) => window.sessionStorage.setItem('step', step)}
             />
             </div>
