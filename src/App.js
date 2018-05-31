@@ -8,8 +8,22 @@ import { HttpError } from "./error/HttpError";
 import Wizard from "./wizard/Wizard";
 
 export default class App extends Component {
+    defaultSettings = {
+        playSound: true,
+        autoContinue: false,
+        language: "Swedish female",
+        rate: 1.0,
+        pitch: 1,
+    }
+
     componentWillMount() {
         console.log("willMOunt");
+    }
+
+    componentDidMount() {
+        if(!sessionStorage.getItem('settings'))    {
+            sessionStorage.setItem('settings', JSON.stringify(this.defaultSettings))
+        }
     }
 
     render() {
