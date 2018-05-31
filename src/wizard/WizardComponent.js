@@ -18,9 +18,10 @@ class WizardComponent extends Component {
         Speaker.cancel();
     }
 
-    setValid() {
+    setValid(val) {
         this.validated = true
         Speaker.cancel();
+        Speaker.speak('Du valde värde: ' + val);
     }
 
     isValidated() {

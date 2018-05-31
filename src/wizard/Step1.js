@@ -1,25 +1,31 @@
 import React from "react";
+import YesNoAlternatives from "./YesNoAlternatives";
 import WizardComponent from './WizardComponent';
 
 class Step1 extends WizardComponent {
     constructor(props) {
         super(props);
-        this.handleClick = this.handleClick.bind(this);
         this.fraga = 'Vad heter katten?';
+        this.state = {
+            givenValue: ""
+        };
     }
 
-    handleClick() {
-        this.validated = !this.validated; // För test
-        console.log('handleClick, validering: ' + this.validated);
-    }
+    handleChange = (event) => {
+        console.log(event.target.data);
+        this.setValid(event.target.data);
+        this.setState({
+            givenValue: event.target.data
+        });
+    };
 
     render() {
        return (
-        <div>
+        <div onClick={this.handleChange}>
             <h1>Fråga 1</h1>
             <p>{this.fraga}</p>
-            <button onClick={this.handleClick}>Ja</button>
-            <button onClick={this.handleClick}>Nej</button>
+            <YesNoAlternatives />
+            <div>{this.state.givenValue}</div>
         </div>
        );
     }
