@@ -8,4 +8,4 @@ class Step1 extends Component {
     }
  }
 
- export default Header;
+ export default Step1;
