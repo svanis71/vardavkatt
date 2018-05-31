@@ -7,3 +7,30 @@ body {
     font-family: sans-serif;      
     height: 100%;
 }
+
+h1 {
+    font-size: 25px;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    height: 15px;
+    height: 40px;
+    min-width: 100px;
+    border-radius: 10px;
+
+    &.primar {
+        background-color: #78CFC0;
+        color: white;
+        margin: 0 20px;
+    }
+
+    &.utfor {
+        font-weight: bold;
+        margin: 0 100px;
+        color: #78CFC0;
+        background-color: white;
+        border: 1px solid #78CFC0;
+    }
+}

@@ -8,8 +8,8 @@ class YesNoAlternatives extends Component {
     render() {
        return (
            <div>
-               <button onClick={() => this.props.onValidAnswer("no")}>No</button>
-               <button onClick={() => this.props.onValidAnswer("yes")}>Yes</button>
+               <button className="primar" onClick={() => this.props.onValidAnswer("no")}>No</button>
+               <button className="primar" onClick={() => this.props.onValidAnswer("yes")}>Yes</button>
                <p>Aktuellt val: {this.props.currentAnswer}</p>
            </div>
        );

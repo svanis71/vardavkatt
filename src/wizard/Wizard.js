@@ -115,6 +115,8 @@ class Wizard extends Component {
                         nextButtonText="Nästa"
                         backButtonText="Gå tillbaka"
                         prevBtnOnLastStep={false}
+                        backButtonCls="utfor"
+                        nextButtonCls="utfor"
                         onStepChange={step => this.ChangeStepCallback(step)}
                     />
                 </div>
