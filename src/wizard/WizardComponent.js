@@ -6,6 +6,10 @@ class WizardComponent extends Component {
         super(props);        
     };
 
+    componentDidMount() {
+        Speaker.speak(this.props.fraga);
+    }
+
     // TODO: props.isValid är en metod som returnerar bool om det inlyssnade värdet är ok
     // Använd isMounted et al
 
