@@ -23,8 +23,9 @@ export default class Settings extends Component {
                 playSound: true,
                 autoContinue: false,
                 language: "Swedish female",
-                rate: 1.0,
+                rate: 1.5,
                 pitch: 1,
+                autoNext: false
             });
         }
     }

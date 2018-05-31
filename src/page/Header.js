@@ -26,7 +26,7 @@ class Header extends Component {
                     onClick={this.onLinkClick}
                 >
                     <span className="menu-icon">
-                        <i class="fas fa-cog" />
+                        <i className="fas fa-cog" />
                     </span>
                 </a>
             </header>
