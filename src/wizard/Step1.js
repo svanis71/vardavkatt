@@ -13,7 +13,7 @@ class Step1 extends Component {
     }
 
     isValid(val) {
-        return !!val && ['yes', 'no'].indexOf(val.toLowerCase()) > -1;
+        return !!val && ['ja', 'nej'].indexOf(val.toLowerCase()) > -1;
     }
 
     onValidAnswer = (answer) => {
