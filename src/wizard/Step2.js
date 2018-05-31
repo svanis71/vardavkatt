@@ -2,11 +2,27 @@ import React, { Component } from "react";
 import YesNoAlternatives from "./YesNoAlternatives";
 
 class Step2 extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            givenValue: ""
+        };
+    }
+
+    handleChange = (event) => {
+        console.log(event.target.data);
+
+        this.setState({
+            givenValue: event.target.data
+        });
+    };
+
     render() {
        return (
-           <div>
+           <div onClick={this.handleChange}>
                <div>Step 2</div>
                <YesNoAlternatives />
+               <div>{this.state.givenValue}</div>
            </div>
        );
     }
