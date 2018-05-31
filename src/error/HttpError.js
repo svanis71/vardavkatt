@@ -5,7 +5,7 @@ export const httpErrorTexts = {
 };
 
 export const HttpError = props => (
-    <div class="error-image-container">
+    <div className="error-image-container">
         <img
             src={`https://http.cat/${props.statusCode}`}
             alt={httpErrorTexts[props.statusCode]}

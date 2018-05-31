@@ -1,14 +1,21 @@
 class Speaker {
-    static defaultVoice = 'Swedish Female';
-    static enabled = true;
-    
     static speak(text, endCallback) {
-        if (this.enabled) {
-            window.responsiveVoice.speak(text, this.defaultVoice, {onend: endCallback});
+        const storedSettings = sessionStorage.getItem("settings");
+        const settings = storedSettings ? JSON.parse(storedSettings) : {};
+
+        if (settings.playSound) {
+            window.responsiveVoice.speak(
+                text,
+                settings.language || 'Swedish female',
+                {
+                    rate: settings.rate || 0.8,
+                    onend: endCallback
+                });
         }
         else {
             console.log(text);
-            if(endCallback) {
+
+            if (endCallback) {
                 endCallback();
             }
         }
@@ -17,6 +24,6 @@ class Speaker {
     static cancel() {
         window.responsiveVoice.cancel();
     }
-} 
+}
 
 export default Speaker;

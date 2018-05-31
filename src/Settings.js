@@ -23,6 +23,7 @@ export default class Settings extends Component {
                 language: "Swedish female",
                 rate: 1.5,
                 pitch: 1,
+                autoNext: false
             });
         }
     }
@@ -46,13 +47,14 @@ export default class Settings extends Component {
         return (
             <form onSubmit={this.onSubmit} className="setting-page">
                 <button style={buttonStyle} type="submit">
-                    <i class="fas fa-angle-left" />
+                    <i className="fas fa-angle-left" />
                 </button>
                 <section className="playsound">
                     <label htmlFor="playsound">Ljud på/av</label>
                     <input
                         type="checkbox"
                         id="playsound"
+                        name="playsound"
                         checked={this.state.playSound}
                         onChange={e =>
                             this.setState({ playSound: e.target.checked })
@@ -72,6 +74,18 @@ export default class Settings extends Component {
                         <option value="Swedish Female">Svensk kvinnlig</option>
                         <option value="Swedish Male">Svensk manlig</option>
                     </select>
+                </section>
+                <section className="autonext">
+                    <label htmlFor="autonext">Jag har tur</label>
+                    <input
+                        type="checkbox"
+                        id="autonext"
+                        name="autonext"
+                        checked={this.state.autoNext}
+                        onChange={e =>
+                            this.setState({ autoNext: e.target.checked })
+                        }
+                    />
                 </section>
             </form>
         );
