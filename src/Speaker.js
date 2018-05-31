@@ -10,6 +10,10 @@ class Speaker {
             console.log(text);
         }
     }
+
+    static cancel() {
+        window.responsiveVoice.cancel();
+    }
 } 
 
  export default Speaker;
