@@ -7,31 +7,29 @@ import Settings from "./Settings";
 import { HttpError } from "./error/HttpError";
 import Wizard from "./wizard/Wizard";
 
-export const BaseLayout = () => (
-    <div className="App">
-        <Header />
-        <BrowserRouter>
-            <Switch>
-                <Route exact path="/" component={Home} />
-                <Route path="/wizard" component={Wizard} />
-                <Route path="/settings" component={Settings} />
-                <Route
-                    path="*"
-                    exact={true}
-                    render={() => <HttpError statusCode="404" />}
-                />
-            </Switch>
-        </BrowserRouter>
-        <Footer />
-    </div>
-);
-
 export default class App extends Component {
     componentWillMount() {
         console.log("willMOunt");
     }
 
     render() {
-        return <BaseLayout />;
+        return (
+            <div className="App">
+                <Header />
+                <BrowserRouter>
+                    <Switch>
+                        <Route exact path="/" component={Home} />
+                        <Route path="/wizard" component={Wizard} />
+                        <Route path="/settings" component={Settings} />
+                        <Route
+                            path="*"
+                            exact={true}
+                            render={() => <HttpError statusCode="404" />}
+                        />
+                    </Switch>
+                </BrowserRouter>
+                <Footer />
+            </div>
+        );
     }
 }

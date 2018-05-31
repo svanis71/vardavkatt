@@ -5,13 +5,17 @@ import Speaker from "./Speaker";
 class Home extends Component {
     componentDidMount() {
         sessionStorage.removeItem('form');
+        sessionStorage.removeItem('step');
     }
     render() {
         return (
-            <div>
-                Startsida
-                <Link to="/wizard">Gå till formular</Link>
-                <Link to="/settings">Inställningar</Link>
+            <div className="menu">
+                <Link to="/wizard" className="menu-item">
+                    <span className="menu-icon">
+                        <i class="fab fa-wpforms" />
+                    </span>
+                    <span className="menuText">Gå till formular</span>
+                </Link>
             </div>
         );
     }
