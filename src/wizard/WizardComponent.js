@@ -4,9 +4,19 @@ import Speaker from '../Speaker';
 class WizardComponent extends Component {
     constructor(props) {
         super(props);
+        console.log(props);
         this.isValidated = this.isValidated.bind(this);
+        this.fraga = '';
         this.validated = false;
     };
+
+    componentDidMount() {
+        Speaker.speak(this.fraga);
+    }
+
+    componentWillUnmount() {
+        Speaker.cancel();
+    }
 
     isValidated() {
         console.log('kontrollera validering');
