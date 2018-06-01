@@ -23,12 +23,11 @@
         h1 {
             float: left;
             margin: 4px;
-            display: inline;
         }
     }
 
     .App-header a {
-        color: #3b9e8e;
+        color: $primary-color-b;
         text-decoration: none;
     }
 
@@ -56,12 +55,14 @@
 
         .menu-item {
             align-items: center;
-            border: solid thin #999;
+            color: $primary-color;
+            background-color: white;
+            border: 1px solid $primary-color;
             border-radius: 6px;
             display: flex;
             font-size: 1.5em;
-            color: #3b9e8e;
-            margin: 0.5em;
+            color: $primary-color-b;
+            margin: 1.5em;
             padding: 0.5em 1.5em 0.5em 0.5em;
 
             .menu-icon {
