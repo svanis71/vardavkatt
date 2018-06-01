@@ -9,6 +9,7 @@ body {
 }
 
 h1 {
+    margin: 40px;
     color: #495059;
     font-size: 25px;
 }
@@ -16,8 +17,8 @@ h1 {
 button, .button {
     border: none;
     cursor: pointer;
-    height: 15px;
-    height: 40px;
+    padding: 13px;
+    text-decoration: none;
     min-width: 100px;
     border-radius: 10px;
 

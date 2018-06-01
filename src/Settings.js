@@ -41,19 +41,19 @@ export default class Settings extends Component {
                 <header>
                     <h2>Inställningar</h2>
                 </header>
-                <fieldset className="autocontinue">
-                    <legend>Fortsätt automatiskt till nästa steg efter inläsning</legend>
+                <span className='legend'>Nästa steg vid svar</span>
+                <section className="fieldset autocontinue">
                     <Checkbox id="autocontinue" name="autocontinue"
                         caption="På/av"
                         checked={this.state.autoContinue}
                         handleClick={chk => this.setState({ autoContinue: chk })} />
-                </fieldset>
-                <fieldset className="playsound">
-                    <legend>Ljud</legend>
+                </section>
+                <span className='legend'>Ljud</span>
+                <section className="fieldset playsound">
                     <Checkbox id="playsound" name="playsound" caption="På/av" checked={this.state.playSound}
                         handleClick={chk => this.setState({ playSound: chk })} />
-                </fieldset>
-                <fieldset className="language">
+                </section>
+                <section className="fieldset language">
                     <label htmlFor="language">Språk</label>
                     <select
                         name="languageSelect"
@@ -66,16 +66,22 @@ export default class Settings extends Component {
                         <option value="Swedish Female">Svensk kvinnlig</option>
                         <option value="Swedish Male">Svensk manlig</option>
                     </select>
-                </fieldset>
-                <fieldset id="rate-fieldset" className="rate" onChange={(e) => this.setState({ rate: Number(e.target.value) })}>
-                    <legend>Uppläsningshastighet</legend>
-                    <input type="radio" name="rate" id="rate-slow" value="0.5" checked={this.state.rate === 0.5} />
-                    <label htmlFor="rate-slow">Långsam</label>
-                    <input type="radio" name="rate" id="rate-medium" value="1.0" checked={this.state.rate === 1.0} />
-                    <label htmlFor="rate-medium">Medium</label>
-                    <input type="radio" name="rate" id="rate-fast" value="1.6" checked={this.state.rate === 1.6} />
-                    <label htmlFor="rate-fast">Snabb</label>
-                </fieldset>
+                </section>
+                    <span className='legend'>Uppläsningshastighet</span>
+                <section id="rate-section" className="fieldset rate" onChange={(e) => this.setState({ rate: Number(e.target.value) })}>
+                    <section className="slow">
+                        <input type="radio" name="rate" id="rate-slow" value="0.5" checked={this.state.rate === 0.5} />
+                        <label htmlFor="rate-slow">Långsam</label>
+                    </section>
+                    <section className="medium">
+                        <input type="radio" name="rate" id="rate-medium" value="1.0" checked={this.state.rate === 1.0} />
+                        <label htmlFor="rate-medium">Medium</label>
+                    </section>
+                    <section className="fast">
+                        <input type="radio" name="rate" id="rate-fast" value="1.6" checked={this.state.rate === 1.6} />
+                        <label htmlFor="rate-fast">Snabb</label>
+                    </section>
+                </section>
             </form>
         );
     }

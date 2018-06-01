@@ -18,7 +18,7 @@ export default class Checkbox extends Component {
         if(!this.props.checked) {
             return (<i className="far fa-square" style={{fontSize: '2em'}}></i>)
         }
-        return (<i class="far fa-check-square" style={{fontSize: '2em'}}></i>)
+        return (<i className="far fa-check-square" style={{fontSize: '2em'}}></i>)
 
     }
     render() {
