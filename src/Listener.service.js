@@ -1,3 +1,4 @@
+import plongStart from "./media/plong-start.mp3";
 
 class Listener {
 
@@ -33,64 +34,70 @@ class Listener {
 
     startRecognition() {
         const promise = new Promise((resolve, reject) => {
-            console.log("Lyssnar..");
-            this.recognition.start();
 
-            let transcript = '';
+            let audio = new Audio(plongStart);
+            audio.play().then(() => {
+                console.log("Lyssnar..");
+                this.recognition.start();
 
-            this.recognition.onspeechend = () => {
-                console.log('onspeechend');
-                this.recognition.stop();
-            };
+                let transcript = '';
 
-            this.recognition.onresult = event => {
-                console.log('onresult');
-                let last = event.results.length - 1;
-                console.log("Hört svar: " + event.results[last][0].transcript);
-                console.log("Confidence: " + event.results[0][0].confidence);
-                const result = event.results[last][0].transcript;
-                this.recognition.stop();
-                transcript = result;
-            };
-            
-            this.recognition.onend = () => {
-                console.log('onend', transcript);
+                this.recognition.onspeechend = () => {
+                    console.log('onspeechend');
+                    this.recognition.stop();
+                };
 
-                resolve(transcript);
-            };
+                this.recognition.onresult = event => {
+                    console.log('onresult');
+                    let last = event.results.length - 1;
+                    console.log("Hört svar: " + event.results[last][0].transcript);
+                    console.log("Confidence: " + event.results[0][0].confidence);
+                    const result = event.results[last][0].transcript;
+                    this.recognition.stop();
+                    transcript = result;
+                };
 
-            this.recognition.onerror = event => {
-                console.log('onerror');
-            };
+                this.recognition.onend = () => {
+                    console.log('onend', transcript);
 
-            this.recognition.onaudioend = () => {
-                console.log('onaudioend');
-            };
+                    resolve(transcript);
+                };
 
-            this.recognition.onaudiostart = () => {
-                console.log('onaudiostart');
-            };
+                this.recognition.onerror = event => {
+                    console.log('onerror');
+                };
 
-            this.recognition.onnomatch = () => {
-                console.log('onnomatch');
-            };
+                this.recognition.onaudioend = () => {
+                    console.log('onaudioend');
+                };
 
-            this.recognition.onsoundend = () => {
-                console.log('onsoundend');
-            };
+                this.recognition.onaudiostart = () => {
+                    console.log('onaudiostart');
+                };
 
-            this.recognition.onsoundstart = () => {
-                console.log('onsoundstart');
-            };
+                this.recognition.onnomatch = () => {
+                    console.log('onnomatch');
+                };
 
-            this.recognition.onspeechstart = () => {
-                console.log('onspeechstart');
-            };
+                this.recognition.onsoundend = () => {
+                    console.log('onsoundend');
+                };
 
-            this.recognition.onstart = () => {
-                console.log('onstart');
-            };
+                this.recognition.onsoundstart = () => {
+                    console.log('onsoundstart');
+                };
+
+                this.recognition.onspeechstart = () => {
+                    console.log('onspeechstart');
+                };
+
+                this.recognition.onstart = () => {
+                    console.log('onstart');
+                };
+            });
+
         });
+
 
         return promise;
     }
