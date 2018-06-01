@@ -13,7 +13,7 @@ export default class Step4 extends Component {
     }
 
     isValid(val) {
-        return !!val && ['idag', 'igår'].includes(val);
+        return !!val;
     }
 
     onValidAnswer = (answer) => {
@@ -30,7 +30,7 @@ export default class Step4 extends Component {
             fraga={this.props.fraga}
             isValid={this.isValid}
             onValidAnswer={this.onValidAnswer}
-            onNext={() => this.props.jumpToStep(2)}
+            onNext={() => this.props.jumpToStep(4)}
             currentAnswer={this.props.getStore()[this.props.stepName]}
         >
             <DateAlternatives
