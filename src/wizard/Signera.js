@@ -20,6 +20,9 @@ class Signera extends Component {
             Fråga 3:
             ${this.props.fragor.step3}
             ${this.props.getStore()['step3']}.
+            Fråga 4:
+            ${this.props.fragor.step4}
+            ${this.props.getStore()['step4']}.
         `, () => this.rostKlar());
     }
 
@@ -36,7 +39,7 @@ class Signera extends Component {
         else {
             Speaker.speak("Försök igen!", () => this.rostKlar());
         }
-      
+
     }
 
     render() {

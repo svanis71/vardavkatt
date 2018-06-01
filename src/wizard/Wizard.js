@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
+import Step4 from "./Step4";
 import Signera from "./Signera";
 import Kvittens from "./Kvittens";
 import StepZilla from "react-stepzilla";
@@ -13,11 +14,13 @@ class Wizard extends Component {
             step1: null,
             step2: null,
             step3: null,
+            step4: null,
         };
 
         this.fragor = {
             step1: "Är katten sjuk?",
             step2: "Är katten frisk?",
+            step4: "Vilket datum stannade du hemma med katten?"
         };
 
         if (sessionStorage.getItem("form")) {
@@ -62,6 +65,19 @@ class Wizard extends Component {
                     <Step2
                         stepName="step2"
                         fraga={this.fragor.step2}
+                        getStore={() => this.getStore()}
+                        updateStore={u => {
+                            this.updateStore(u);
+                        }}
+                    />
+                ),
+            },
+            {
+                name: "Step4",
+                component: (
+                    <Step4
+                        stepName="step4"
+                        fraga={this.fragor.step4}
                         getStore={() => this.getStore()}
                         updateStore={u => {
                             this.updateStore(u);
