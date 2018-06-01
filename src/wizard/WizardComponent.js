@@ -20,13 +20,21 @@ class WizardComponent extends Component {
     hanteraSvar(result) {
         console.log(result);
 
-        if (result.indexOf('ästa') > -1 || result.indexOf('esta') > -1) {
+        const storedSettings = sessionStorage.getItem("settings");
+        const settings = storedSettings ? JSON.parse(storedSettings) : {};
+
+        if (!settings.autoContinue && (result.indexOf('ästa') > -1 || result.indexOf('esta') > -1)) {
             Speaker.speak("Nästa fråga", this.props.onNext);
         } else if (this.props.isValid(result)) {
             this.props.onValidAnswer(result);
-            Speaker.speak("Du svarade " + result + " säg nästa eller ange ett nytt svar.", () => this.rostKlar());
+
+            if (settings.autoContinue) {
+                Speaker.speak("Du svarade " + result, this.props.onNext);
+            } else {
+                Speaker.speak("Du svarade " + result + " säg nästa eller ange ett nytt svar.", () => this.rostKlar());
+            }
         } else {
-            Speaker.speak("Kattsingen, vad säger du? En gång till.", () => this.rostKlar());
+            Speaker.speak("Försök igen!", () => this.rostKlar());
         }
     }
 
