@@ -1,12 +1,14 @@
 import React, { Component } from "react";
-// import WizardComponent from './WizardComponent';
+import Speaker from "../Speaker";
 
 class Kvittens extends Component {
     constructor(props) {
         super(props);
         this.validated = true;
+        this.rubrik = "Tack för din Ansökan"
     }
     componentDidMount() {
+        Speaker.speak(this.rubrik);
         const url = 'https://kattbidraget.herokuapp.com/ansokan';
         const data = {"namn": "", "alder": "", "franDatum": "", "tomDatum": "", "orsak": []}
         fetch(url, {
@@ -22,7 +24,7 @@ class Kvittens extends Component {
     render() {
        return (
         <div>
-            <h1>Tack för din ansökan</h1>
+            <h1>{this.rubrik}</h1>
             <p>
                 <a href="/" className="button primar">Gå tillbaka till startsidan</a>
             </p>
