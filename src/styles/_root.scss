@@ -17,8 +17,8 @@ h1 {
 button, .button {
     border: none;
     cursor: pointer;
-    height: 15px;
-    height: 40px;
+    padding: 13px;
+    text-decoration: none;
     min-width: 100px;
     border-radius: 10px;
 
@@ -34,7 +34,6 @@ button, .button {
 
     &.utfor {
         font-weight: bold;
-        margin: 0 100px;
         color: #78CFC0;
         background-color: white;
         border: 1px solid $primary-color;
@@ -42,5 +41,14 @@ button, .button {
 }
 
 .footer-buttons {
-    margin-top: 150px;
+    max-width: 500px;
+    margin: 150px auto;
+
+    #prev-button {
+        float: left;
+    }
+
+    #next-button {
+        float: right;
+    }
 }

@@ -21,7 +21,12 @@ class Kvittens extends Component {
 
     render() {
        return (
-        <div>Kvittens!</div>
+        <div>
+            <h1>Tack för din ansökan</h1>
+            <p>
+                <a href="/" className="button primar">Gå tillbaka till startsidan</a>
+            </p>
+        </div>
        );
     }
  }
