@@ -1,12 +1,16 @@
 import React, { Component } from "react";
+import {enableUniqueIds} from 'react-html-id'
 import { createBrowserHistory } from "history";
 import Checkbox from './Components/Checkbox';
+import { SpeakerRates, SpeakerLanguages } from './Constants';
 
 export default class Settings extends Component {
     state = {};
     defaultSettings = {};
 
-    super(props) {
+    constructor(props) {
+        super()
+        enableUniqueIds(this)
         this.defaultSettings = props.defaultSettings;
     }
 
@@ -17,8 +21,8 @@ export default class Settings extends Component {
         } else {
             this.setState({
                 playSound: true,
-                language: "Swedish Female",
-                rate: 1,
+                language: SpeakerLanguages["Svensk kvinnlig"],
+                rate: SpeakerRates.medium,
                 pitch: 1,
                 autoContinue: false
             });
@@ -63,22 +67,21 @@ export default class Settings extends Component {
                             this.setState({ language: e.target.value })
                         }
                     >
-                        <option value="Swedish Female">Svensk kvinnlig</option>
-                        <option value="Swedish Male">Svensk manlig</option>
+                        {SpeakerLanguages.map(l => <option key={this.nextUniqueId()} value={l.value}>{l.name}</option>)}
                     </select>
                 </section>
                     <span className='legend'>Uppläsningshastighet</span>
                 <section id="rate-section" className="fieldset rate" onChange={(e) => this.setState({ rate: Number(e.target.value) })}>
                     <section className="slow">
-                        <input type="radio" name="rate" id="rate-slow" value="0.5" checked={this.state.rate === 0.5} />
+                        <input type="radio" name="rate" id="rate-slow" value={SpeakerRates.slow} checked={this.state.rate === SpeakerRates.slow} />
                         <label htmlFor="rate-slow">Långsam</label>
                     </section>
                     <section className="medium">
-                        <input type="radio" name="rate" id="rate-medium" value="1.0" checked={this.state.rate === 1.0} />
+                        <input type="radio" name="rate" id="rate-medium" value={SpeakerRates.medium} checked={this.state.rate === SpeakerRates.medium} />
                         <label htmlFor="rate-medium">Medium</label>
                     </section>
                     <section className="fast">
-                        <input type="radio" name="rate" id="rate-fast" value="1.6" checked={this.state.rate === 1.6} />
+                        <input type="radio" name="rate" id="rate-fast" value={SpeakerRates.fast} checked={this.state.rate === SpeakerRates.fast} />
                         <label htmlFor="rate-fast">Snabb</label>
                     </section>
                 </section>
