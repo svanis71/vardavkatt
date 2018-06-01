@@ -30,25 +30,25 @@ class Signera extends Component {
 
     hanteraSvar(result) {
         console.log(result);
-        if (result.indexOf('signera') > -1) {
-            this.props.jumpToStep(3);
+        if (result.indexOf('signera') > -1 || result.indexOf('ästa') > -1 || result.indexOf('esta') > -1) {
+            this.props.jumpToStep(4);
         }
         else {
             Speaker.speak("Försök igen!", () => this.rostKlar());
         }
-      
+
     }
 
     render() {
-       return (
-        <div>
-            <h1>Signera</h1>
-            <p>{this.props.fragor.step1} : {this.props.getStore()['step1']}</p>
-            <p>{this.props.fragor.step2} : {this.props.getStore()['step2']}</p>
-            <p>{this.props.fragor.step3} : {this.props.getStore()['step3']}</p>
-        </div>
-       );
+        return (
+            <div>
+                <h1>Signera</h1>
+                <p>{this.props.fragor.step1} : {this.props.getStore()['step1']}</p>
+                <p>{this.props.fragor.step2} : {this.props.getStore()['step2']}</p>
+                <p>{this.props.fragor.step3} : {this.props.getStore()['step3']}</p>
+            </div>
+        );
     }
- }
+}
 
- export default Signera;
+export default Signera;
