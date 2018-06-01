@@ -4,6 +4,7 @@ import Header from "./page/Header";
 import Footer from "./page/Footer";
 import Home from "./Home";
 import Settings from "./Settings";
+import {SpeakerRates, SpeakerLanguages } from './Constants';
 import { HttpError } from "./error/HttpError";
 import Wizard from "./wizard/Wizard";
 
@@ -11,8 +12,8 @@ export default class App extends Component {
     defaultSettings = {
         playSound: true,
         autoContinue: false,
-        language: "Swedish Female",
-        rate: 1.0,
+        language: SpeakerLanguages[0].value,
+        rate: SpeakerRates.medium,
         pitch: 1,
     }
 
