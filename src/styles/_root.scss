@@ -4,7 +4,7 @@ body {
     background-repeat: no-repeat;
     margin: 0;
     padding: 0;
-    font-family: sans-serif;      
+    font-family: sans-serif;
     height: 100%;
 }
 
@@ -13,7 +13,7 @@ h1 {
     font-size: 25px;
 }
 
-button {
+button, .button {
     border: none;
     cursor: pointer;
     height: 15px;
@@ -22,9 +22,13 @@ button {
     border-radius: 10px;
 
     &.primar {
-        background-color: #78CFC0;
+        background-color: $primary-color;
         color: white;
         margin: 0 20px;
+
+        &.active {
+            background-color: darken($primary-color, 40%);
+        }
     }
 
     &.utfor {
@@ -32,6 +36,10 @@ button {
         margin: 0 100px;
         color: #78CFC0;
         background-color: white;
-        border: 1px solid #78CFC0;
+        border: 1px solid $primary-color;
     }
+}
+
+.footer-buttons {
+    margin-top: 150px;
 }

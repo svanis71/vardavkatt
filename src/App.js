@@ -17,7 +17,6 @@ export default class App extends Component {
     }
 
     componentWillMount() {
-        console.log("willMOunt");
     }
 
     componentDidMount() {
