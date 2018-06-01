@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Speaker from "../Speaker";
+import successSound from "../media/success.mp3";
 
 class Kvittens extends Component {
     constructor(props) {
@@ -8,7 +8,6 @@ class Kvittens extends Component {
         this.rubrik = "Tack för din Ansökan"
     }
     componentDidMount() {
-        Speaker.speak(this.rubrik);
         const url = 'https://kattbidraget.herokuapp.com/ansokan';
         const data = {"namn": "", "alder": "", "franDatum": "", "tomDatum": "", "orsak": []}
         fetch(url, {
@@ -17,7 +16,9 @@ class Kvittens extends Component {
         })
         .then(resp => resp.json())
         .then(data => {
-            console.log(data)
+            console.log(data);
+            let audio = new Audio(successSound);
+            audio.play();
         })
     }
 
