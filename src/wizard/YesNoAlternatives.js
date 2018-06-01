@@ -1,16 +1,11 @@
 import React, { Component } from "react";
 
 class YesNoAlternatives extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
        return (
            <div>
-               <button className="primar" onClick={() => this.props.onValidAnswer("no")}>No</button>
-               <button className="primar" onClick={() => this.props.onValidAnswer("yes")}>Yes</button>
-               <p>Aktuellt val: {this.props.currentAnswer}</p>
+               <button className={"primar " + (this.props.currentAnswer === 'no' ? 'active' : '')} onClick={() => this.props.onValidAnswer("no")}>No</button>
+               <button className={"primar " + (this.props.currentAnswer === 'yes' ? 'active' : '')} onClick={() => this.props.onValidAnswer("yes")}>Yes</button>
            </div>
        );
     }
