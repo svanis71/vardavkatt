@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {enableUniqueIds} from 'react-html-id'
 import { createBrowserHistory } from "history";
 import Checkbox from './Components/Checkbox';
 import { SpeakerRates, SpeakerLanguages } from './Constants';
@@ -7,7 +8,9 @@ export default class Settings extends Component {
     state = {};
     defaultSettings = {};
 
-    super(props) {
+    constructor(props) {
+        super()
+        enableUniqueIds(this)
         this.defaultSettings = props.defaultSettings;
     }
 
@@ -64,7 +67,7 @@ export default class Settings extends Component {
                             this.setState({ language: e.target.value })
                         }
                     >
-                        {SpeakerLanguages.map(l => <option value={l.value}>{l.name}</option>)}
+                        {SpeakerLanguages.map(l => <option key={this.nextUniqueId()} value={l.value}>{l.name}</option>)}
                     </select>
                 </section>
                     <span className='legend'>Uppläsningshastighet</span>
