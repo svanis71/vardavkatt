@@ -135,7 +135,7 @@ class Wizard extends Component {
                         steps={steps}
                         preventEnterSubmission={true}
                         nextTextOnFinalActionStep={"Signera"}
-                        hocValidationAppliedTo={[3]}
+                        hocValidationAppliedTo={[]}
                         startAtStep={
                             window.sessionStorage.getItem("step")
                                 ? parseFloat(
