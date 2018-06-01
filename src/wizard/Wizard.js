@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Step1 from "./Step1";
 import Step2 from "./Step2";
+import Step3 from "./Step3";
 import Signera from "./Signera";
 import Kvittens from "./Kvittens";
 import StepZilla from "react-stepzilla";
@@ -17,7 +18,8 @@ class Wizard extends Component {
 
         this.fragor = {
             step1: "Är katten sjuk?",
-            step2: "Är katten frisk?",
+            step2: "Har du stannat hemma från ditt arbete?",
+            step3: "Vad heter din katt?"
         };
 
         if (sessionStorage.getItem("form")) {
@@ -25,8 +27,8 @@ class Wizard extends Component {
         }
     }
 
-    componentDidMount() {}
-    componentWillUnmount() {}
+    componentDidMount() { }
+    componentWillUnmount() { }
 
     getStore() {
         return this.state;
@@ -62,6 +64,19 @@ class Wizard extends Component {
                     <Step2
                         stepName="step2"
                         fraga={this.fragor.step2}
+                        getStore={() => this.getStore()}
+                        updateStore={u => {
+                            this.updateStore(u);
+                        }}
+                    />
+                ),
+            },
+            {
+                name: "Step3",
+                component: (
+                    <Step3
+                        stepName="step3"
+                        fraga={this.fragor.step3}
                         getStore={() => this.getStore()}
                         updateStore={u => {
                             this.updateStore(u);
@@ -108,8 +123,8 @@ class Wizard extends Component {
                         startAtStep={
                             window.sessionStorage.getItem("step")
                                 ? parseFloat(
-                                      window.sessionStorage.getItem("step")
-                                  )
+                                    window.sessionStorage.getItem("step")
+                                )
                                 : 0
                         }
                         nextButtonText="Nästa"
