@@ -6,7 +6,7 @@ class Kvittens extends Component {
     constructor(props) {
         super(props);
         this.validated = true;
-        this.rubrik = "Tack för din Ansökan"
+        this.rubrik = "Tack för din ansökan"
     }
     componentDidMount() {
         const url = 'https://kattbidraget.herokuapp.com/ansokan';

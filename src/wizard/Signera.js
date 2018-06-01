@@ -23,6 +23,10 @@ class Signera extends Component {
         `, () => this.rostKlar());
     }
 
+    isValidated() {
+        return true;
+    }
+
     rostKlar() {
         console.log('fråga klar');
         this.listener.startRecognition().then(result => this.hanteraSvar(result));

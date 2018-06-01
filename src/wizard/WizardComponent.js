@@ -12,12 +12,21 @@ class WizardComponent extends Component {
         Speaker.speak(this.props.fraga, () => this.rostKlar());
     }
 
+    componentWillUnmount() {
+        this.abort = true;
+    }
+
     rostKlar() {
         console.log('fråga klar');
         this.listener.startRecognition().then(result => this.hanteraSvar(result));
     }
 
     hanteraSvar(result) {
+        if (this.abort) {
+            Speaker.cancel();
+            return;
+        }
+
         console.log(result);
 
         const storedSettings = sessionStorage.getItem("settings");
