@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import successSound from "../media/success.mp3";
+
 // import WizardComponent from './WizardComponent';
 
 class Kvittens extends Component {
@@ -15,7 +17,9 @@ class Kvittens extends Component {
         })
         .then(resp => resp.json())
         .then(data => {
-            console.log(data)
+            console.log(data);
+            let audio = new Audio(successSound);
+            audio.play();
         })
     }
 
