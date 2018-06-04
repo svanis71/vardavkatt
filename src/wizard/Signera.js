@@ -20,6 +20,9 @@ class Signera extends Component {
             Fråga 3:
             ${this.props.fragor.step3}
             ${this.props.getStore()['step3']}.
+            Fråga 4:
+            ${this.props.fragor.step4}
+            ${this.props.getStore()['step4']}.
         `, () => this.rostKlar());
     }
 
@@ -50,6 +53,7 @@ class Signera extends Component {
                 <p>{this.props.fragor.step1} : {this.props.getStore()['step1']}</p>
                 <p>{this.props.fragor.step2} : {this.props.getStore()['step2']}</p>
                 <p>{this.props.fragor.step3} : {this.props.getStore()['step3']}</p>
+                <p>{this.props.fragor.step4} : {this.props.getStore()['step4']}</p>
             </div>
         );
     }
