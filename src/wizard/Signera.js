@@ -38,7 +38,7 @@ class Signera extends Component {
     hanteraSvar(result) {
         console.log(result);
         if (result.indexOf('signera') > -1 || result.indexOf('ästa') > -1 || result.indexOf('esta') > -1) {
-            this.props.jumpToStep(4);
+            this.props.jumpToStep(5);
         }
         else {
             Speaker.speak("Försök igen!", () => this.rostKlar());
